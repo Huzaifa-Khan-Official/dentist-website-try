@@ -1,6 +1,8 @@
 import React from "react";
 import "./Login.css";
 import { Link } from "react-router-dom";
+import Swal from 'sweetalert2';
+import LoaderGif from "../../Assets/loaderGif.gif";
 
 const Login = () => {
     return (

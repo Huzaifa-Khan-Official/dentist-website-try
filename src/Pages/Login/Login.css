@@ -3,6 +3,16 @@
     padding: 50px 20px;
 }
 
+.form-outline .form-control:focus~.form-label {
+    transition: all 0.5s !important;
+    transform: translateY(-1rem) translateY(-0.5rem) scale(0.8) !important;
+}
+
+.form-outline .form-control:focus {
+    transition: all 0.5s !important;
+    border: 1px solid #3b71ca !important;
+}
+
 @media (max-width: 576px) {
     .LoginComponentDiv {
         width: 100%;
@@ -11,6 +21,7 @@
     .LoginComponentDiv .nav {
         flex-direction: column;
     }
+
     .formCheckDiv {
         padding-left: 0 !important;
     }
