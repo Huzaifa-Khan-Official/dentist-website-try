@@ -3,15 +3,50 @@
     padding: 50px 20px;
 }
 
-.form-outline .form-control:focus~.form-label {
+.nav-item a:hover {
+    cursor: pointer;
+}
+
+.form-outline .form-control {
+    border: 1px solid #fff !important;
+}
+
+.form-outline .form-control:hover {
     transition: all 0.5s !important;
-    transform: translateY(-1rem) translateY(-0.5rem) scale(0.8) !important;
+    border-color: #3b71ca !important;
+}
+
+.form-outline .form-control:valid~.form-label {
+    transition: all 0.5s !important;
+    transform: translateY(-1rem) translateY(-0.7rem) scale(0.8) !important;
 }
 
 .form-outline .form-control:focus {
     transition: all 0.5s !important;
-    border: 1px solid #3b71ca !important;
+    border-color: #3b71ca;
 }
+
+
+#rigisterLink:hover {
+    text-decoration: underline;
+}
+
+/* loaderDiv */
+.loaderDiv {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.504);
+}
+
+.loaderDiv img {
+    width: 300px;
+}
+
+/* end loaderDiv */
 
 @media (max-width: 576px) {
     .LoginComponentDiv {

@@ -1,0 +1,40 @@
+.navbar-nav {
+    gap: 10px;
+}
+
+.navbar-nav .nav-item {
+    padding: 5px 20px;
+    border-radius: 20px;
+    border: 1px solid #3b71ca;
+    transition: all .3s;
+}
+
+.navbar-nav .nav-item:hover {
+    background-color: #3b71ca;
+    cursor: pointer;
+}
+
+#logoutBtn {
+    background-color: #3b72caaf;
+}
+
+#logoutBtn .nav-link {
+    color: white !important;
+}
+
+#logoutBtn:hover {
+    background-color: #3b71ca;
+}
+
+.navbar-nav .nav-item:hover .nav-link {
+    color: white !important;
+}
+
+.navbar-nav .nav-link {
+    color: #3b71ca !important;
+}
+
+.navbar-nav .nav-item .nav-link {
+    padding: 0;
+
+}

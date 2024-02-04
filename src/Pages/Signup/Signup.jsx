@@ -1,8 +1,8 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import "./Signup.css"
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
-import { auth, getAuth, createUserWithEmailAndPassword, doc, setDoc, db } from '../../Configuration/FirebaseConfig';
+import { auth, createUserWithEmailAndPassword, doc, setDoc, db, onAuthStateChanged, onSnapshot } from '../../Configuration/FirebaseConfig';
 import LoaderGif from "../../Assets/loaderGif.gif";
 
 function Signup() {
@@ -11,6 +11,24 @@ function Signup() {
     let [passwordValue, setpasswordValue] = useState("");
     let [repeatPasswordValue, setrepeatPasswordValue] = useState("");
     let [isLoader, setisLoader] = useState(false);
+    const navigate = useNavigate();
+
+    useEffect(() => {
+        onAuthStateChanged(auth, (user) => {
+            if (user) {
+                const userUid = user.uid;
+                const unsub = onSnapshot(doc(db, `users/${userUid}`), (doc) => {
+                    if (doc.exists() && doc.data().isAuthenticate) {
+                        setisLoader(false);
+                        navigate("/")
+                    } else {
+                        setisLoader(false)
+                    }
+                });
+            } else {
+            }
+        });
+    }, [])
 
     const signupBtn = () => {
         try {
@@ -44,7 +62,6 @@ function Signup() {
                             title: 'Congratulations!',
                             icon: 'success',
                             text: "Account created successfully!",
-                            confirmButtonText: 'Cool'
                         })
 
                         setuserName("");
@@ -60,7 +77,6 @@ function Signup() {
                             title: 'Error!',
                             icon: 'error',
                             text: errorMessage,
-                            confirmButtonText: 'Cool'
                         })
                     });
 
@@ -72,7 +88,6 @@ function Signup() {
                 title: 'Error!',
                 icon: 'error',
                 text: error,
-                confirmButtonText: 'Cool'
             })
         }
     }
