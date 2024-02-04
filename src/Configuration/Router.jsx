@@ -3,6 +3,7 @@ import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom'
 import Home from '../Pages/Home'
 import Navbar from '../Components/Navbar'
 import Login from '../Pages/Login/Login'
+import Signup from '../Pages/Signup/Signup'
 
 export default function Router() {
     const [isUser, setIsUser] = useState(false);
@@ -19,6 +20,7 @@ export default function Router() {
                         isUser ? <Navigate to={"/"} /> :
                             <Login />
                     } />
+                    <Route path='/signup' element={<Signup />} />
                 </Routes>
             </BrowserRouter>
         </div>
