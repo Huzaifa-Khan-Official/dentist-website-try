@@ -6,6 +6,7 @@ import Navbar from '../Components/Navbar';
 import { MDBBtn } from 'mdb-react-ui-kit';
 import "./Home.css";
 import Modal from '../Components/Modal/Modal';
+import AddPatientForm from '../Components/AddPatientForm/AddPatientForm';
 
 export default function Home() {
   const [isLoader, setisLoader] = useState(false);
@@ -49,7 +50,7 @@ export default function Home() {
       <div className="contentDiv">
         <h1>Add Patient Details</h1>
         <div className="addPatientBtnDiv">
-          <Modal />
+          <Modal children={<AddPatientForm />} />
         </div>
       </div>
       <div className="loaderDiv" style={{ display: isLoader ? 'flex' : 'none' }}>

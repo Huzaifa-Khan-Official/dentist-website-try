@@ -12,6 +12,7 @@ import {
 
 export default function Modal({ children }) {
     const [basicModal, setBasicModal] = useState(false);
+    const workOptions = ["work 1", "work 2", "work 3", "work 4", "work 5"];
 
     const toggleOpen = () => setBasicModal(!basicModal);
 
@@ -41,7 +42,7 @@ export default function Modal({ children }) {
                             <MDBBtn color='secondary' onClick={toggleOpen}>
                                 Close
                             </MDBBtn>
-                            <MDBBtn onClick={handleSaveChanges}>Save changes</MDBBtn>
+                            <MDBBtn onClick={handleSaveChanges}>Add Patient</MDBBtn>
                         </MDBModalFooter>
                     </MDBModalContent>
                 </MDBModalDialog>
