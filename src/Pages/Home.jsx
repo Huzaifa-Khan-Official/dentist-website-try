@@ -3,6 +3,9 @@ import LoaderGif from '../Assets/loaderGif.gif';
 import { auth, onAuthStateChanged, doc, onSnapshot, db, updateDoc, signOut } from '../Configuration/FirebaseConfig';
 import { Navigate, useNavigate } from 'react-router-dom';
 import Navbar from '../Components/Navbar';
+import { MDBBtn } from 'mdb-react-ui-kit';
+import "./Home.css";
+import Modal from '../Components/Modal/Modal';
 
 export default function Home() {
   const [isLoader, setisLoader] = useState(false);
@@ -43,6 +46,12 @@ export default function Home() {
   return (
     <div>
       <Navbar logoutBtn={logoutBtn} />
+      <div className="contentDiv">
+        <h1>Add Patient Details</h1>
+        <div className="addPatientBtnDiv">
+          <Modal />
+        </div>
+      </div>
       <div className="loaderDiv" style={{ display: isLoader ? 'flex' : 'none' }}>
         <img src={LoaderGif} alt="" />
       </div>
